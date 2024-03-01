@@ -22,7 +22,7 @@ const NavBar = () => {
   const pathName = usePathname();
 
   return (
-    <header className="sticky top-0 z-50  bg-slate-900/95 px-4 py-5 shadow-slate-900/5  transition duration-500 backdrop-blur ">
+    <header className="sticky top-0 z-50   bg-slate-900/95 px-4 py-5 shadow-slate-900/5  transition duration-500 backdrop-blur ">
       <div className="container mx-auto flex items-center justify-between sm:px-6 lg:px-8">
         <div className="flex items-center">
           <Link href="/" aria-label="Home page">

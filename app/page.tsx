@@ -1,90 +1,32 @@
+import { Text } from "@radix-ui/themes";
+
 export default function Home() {
   return (
     <div>
-      <h1>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, et
-        iure! Molestiae repudiandae, illum nihil sit dicta ipsa deleniti qui
-        animi molestias commodi eius quisquam numquam fuga modi doloremque vitae
-        asperiores incidunt? Fugit veritatis, commodi minima facere et impedit
-        consequuntur adipisci possimus, laboriosam inventore, tenetur ad.
-        Mollitia, nesciunt, distinctio ducimus quae ipsum, minima perspiciatis
-        necessitatibus reiciendis quia reprehenderit voluptatem quaerat
-        excepturi numquam? Tempore minus voluptatem tenetur pariatur itaque
-        repellat consequatur adipisci eum quae laboriosam obcaecati excepturi
-        nulla, temporibus officia porro eveniet illum animi vitae esse! Nisi ex
-        blanditiis unde necessitatibus ad delectus atque iusto eius,
-        voluptatibus harum dolorum saepe. Quia?
-      </h1>
-      <h1>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, et
-        iure! Molestiae repudiandae, illum nihil sit dicta ipsa deleniti qui
-        animi molestias commodi eius quisquam numquam fuga modi doloremque vitae
-        asperiores incidunt? Fugit veritatis, commodi minima facere et impedit
-        consequuntur adipisci possimus, laboriosam inventore, tenetur ad.
-        Mollitia, nesciunt, distinctio ducimus quae ipsum, minima perspiciatis
-        necessitatibus reiciendis quia reprehenderit voluptatem quaerat
-        excepturi numquam? Tempore minus voluptatem tenetur pariatur itaque
-        repellat consequatur adipisci eum quae laboriosam obcaecati excepturi
-        nulla, temporibus officia porro eveniet illum animi vitae esse! Nisi ex
-        blanditiis unde necessitatibus ad delectus atque iusto eius,
-        voluptatibus harum dolorum saepe. Quia?
-      </h1>
-      <h1>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, et
-        iure! Molestiae repudiandae, illum nihil sit dicta ipsa deleniti qui
-        animi molestias commodi eius quisquam numquam fuga modi doloremque vitae
-        asperiores incidunt? Fugit veritatis, commodi minima facere et impedit
-        consequuntur adipisci possimus, laboriosam inventore, tenetur ad.
-        Mollitia, nesciunt, distinctio ducimus quae ipsum, minima perspiciatis
-        necessitatibus reiciendis quia reprehenderit voluptatem quaerat
-        excepturi numquam? Tempore minus voluptatem tenetur pariatur itaque
-        repellat consequatur adipisci eum quae laboriosam obcaecati excepturi
-        nulla, temporibus officia porro eveniet illum animi vitae esse! Nisi ex
-        blanditiis unde necessitatibus ad delectus atque iusto eius,
-        voluptatibus harum dolorum saepe. Quia?
-      </h1>
-      <h1>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, et
-        iure! Molestiae repudiandae, illum nihil sit dicta ipsa deleniti qui
-        animi molestias commodi eius quisquam numquam fuga modi doloremque vitae
-        asperiores incidunt? Fugit veritatis, commodi minima facere et impedit
-        consequuntur adipisci possimus, laboriosam inventore, tenetur ad.
-        Mollitia, nesciunt, distinctio ducimus quae ipsum, minima perspiciatis
-        necessitatibus reiciendis quia reprehenderit voluptatem quaerat
-        excepturi numquam? Tempore minus voluptatem tenetur pariatur itaque
-        repellat consequatur adipisci eum quae laboriosam obcaecati excepturi
-        nulla, temporibus officia porro eveniet illum animi vitae esse! Nisi ex
-        blanditiis unde necessitatibus ad delectus atque iusto eius,
-        voluptatibus harum dolorum saepe. Quia?
-      </h1>
-      <h1>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, et
-        iure! Molestiae repudiandae, illum nihil sit dicta ipsa deleniti qui
-        animi molestias commodi eius quisquam numquam fuga modi doloremque vitae
-        asperiores incidunt? Fugit veritatis, commodi minima facere et impedit
-        consequuntur adipisci possimus, laboriosam inventore, tenetur ad.
-        Mollitia, nesciunt, distinctio ducimus quae ipsum, minima perspiciatis
-        necessitatibus reiciendis quia reprehenderit voluptatem quaerat
-        excepturi numquam? Tempore minus voluptatem tenetur pariatur itaque
-        repellat consequatur adipisci eum quae laboriosam obcaecati excepturi
-        nulla, temporibus officia porro eveniet illum animi vitae esse! Nisi ex
-        blanditiis unde necessitatibus ad delectus atque iusto eius,
-        voluptatibus harum dolorum saepe. Quia?
-      </h1>
-      <h1>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, et
-        iure! Molestiae repudiandae, illum nihil sit dicta ipsa deleniti qui
-        animi molestias commodi eius quisquam numquam fuga modi doloremque vitae
-        asperiores incidunt? Fugit veritatis, commodi minima facere et impedit
-        consequuntur adipisci possimus, laboriosam inventore, tenetur ad.
-        Mollitia, nesciunt, distinctio ducimus quae ipsum, minima perspiciatis
-        necessitatibus reiciendis quia reprehenderit voluptatem quaerat
-        excepturi numquam? Tempore minus voluptatem tenetur pariatur itaque
-        repellat consequatur adipisci eum quae laboriosam obcaecati excepturi
-        nulla, temporibus officia porro eveniet illum animi vitae esse! Nisi ex
-        blanditiis unde necessitatibus ad delectus atque iusto eius,
-        voluptatibus harum dolorum saepe. Quia?
-      </h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, ipsam
+        exercitationem accusantium et in velit itaque corrupti rem. Nihil quas,
+        iure exercitationem neque libero obcaecati. Inventore temporibus
+        distinctio maxime quis et aut officia placeat tempora, hic amet debitis
+        suscipit autem voluptates voluptas quaerat quo quidem cupiditate magnam
+        quam eum in nam cum numquam! Eaque necessitatibus obcaecati commodi
+        deleniti delectus cupiditate eos omnis, sapiente rem, quia quo
+        accusantium blanditiis, unde iure. Ex voluptates sunt similique? Dolore,
+        quam? Dicta dolorum perspiciatis aut laborum dolores fuga reprehenderit
+        aperiam molestias nihil, dignissimos quia quidem dolore cumque
+        praesentium necessitatibus ducimus non! Doloribus ratione cumque magni
+        corporis aliquid, quas numquam porro a rerum molestias quae aut! Ipsa
+        animi inventore aliquam architecto placeat aspernatur officiis at quae
+        saepe laudantium quia iusto repellendus sunt dolorem, sequi accusantium.
+        Ipsum iusto a corrupti, minima in eligendi eos inventore odio, saepe
+        fuga illum ab nihil! Adipisci excepturi laudantium tempore? Praesentium
+        mollitia deserunt cumque vel numquam illum illo corporis? Ipsum beatae
+        iste nam facere repellat doloribus ducimus et nemo ratione, molestiae,
+        quos sint natus hic cumque porro distinctio neque culpa quas. Assumenda
+        maiores hic voluptates porro vel quaerat fugiat rem numquam. Accusamus
+        dolores voluptatem eaque ullam? Quisquam modi delectus nihil aut
+        asperiores?
+      </p>
     </div>
   );
 }
