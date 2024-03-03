@@ -6,12 +6,17 @@ import { notFound } from "next/navigation";
 import { RiPencilFill } from "react-icons/ri";
 import Markdown from "react-markdown";
 import DeleteIssueButton from "./DeleteIssueButton";
+import { authOptions } from "@/app/auth/authOptions";
+import { getServerSession } from "next-auth";
+import AssigneeSelect from "./AssigneeSelect";
 
 interface Props {
   params: { id: string };
 }
 
 const IssueDetailsPge = async ({ params }: Props) => {
+  const session = await getServerSession(authOptions);
+
   const issue = await prisma.issue.findUnique({
     where: { id: params.id },
   });
@@ -40,11 +45,16 @@ const IssueDetailsPge = async ({ params }: Props) => {
       </Box>
       <Box>
         <Flex direction="column" gap="4">
-          <Button>
-            <RiPencilFill />
-            <Link href={`/issues/edit/${issue.id}`}>Edit Issue</Link>
-          </Button>
-          <DeleteIssueButton issueId={issue.id} />
+          {session && (
+            <>
+              <AssigneeSelect />
+              <Button>
+                <RiPencilFill />
+                <Link href={`/issues/edit/${issue.id}`}>Edit Issue</Link>
+              </Button>
+              <DeleteIssueButton issueId={issue.id} />
+            </>
+          )}
         </Flex>
       </Box>
     </Grid>
