@@ -4,9 +4,23 @@ import Link from "next/link";
 import React from "react";
 import IssueStatusBadge from "../../components/IssueStatusBadge";
 import CustomLink from "../../components/CustomLink";
+import IssueStatusFilter from "./IssueStatusFilter";
+import { Status } from "@prisma/client";
 
-const IssuesPage = async () => {
+const IssuesPage = async ({
+  searchParams,
+}: {
+  searchParams: { status: Status };
+}) => {
+  const statuses = Object.values(Status);
+  const status = statuses.includes(searchParams.status)
+    ? searchParams.status
+    : undefined;
+
   const issues = await prisma.issue.findMany({
+    where: {
+      status,
+    },
     orderBy: {
       createdAt: "desc",
     },
@@ -14,10 +28,11 @@ const IssuesPage = async () => {
 
   return (
     <div>
-      <div className="mb-5">
+      <div className="mb-5 flex items-center justify-between">
         <Button>
           <Link href="/issues/new">New Issue</Link>
         </Button>
+        <IssueStatusFilter />
       </div>
       <Table.Root variant="surface">
         <Table.Header>
