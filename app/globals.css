@@ -8,10 +8,6 @@
   box-sizing: border-box;
 }
 
-.CodeMirror {
-  background-color: rgb(15 23 42) !important;
-  color: white !important;
-}
 .rt-BaseButton {
   cursor: pointer !important;
 }

@@ -6,7 +6,11 @@ import IssueStatusBadge from "../components/IssueStatusBadge";
 import CustomLink from "../components/CustomLink";
 
 const IssuesPage = async () => {
-  const issues = await prisma.issue.findMany();
+  const issues = await prisma.issue.findMany({
+    orderBy: {
+      createdAt: "desc",
+    },
+  });
 
   return (
     <div>
@@ -53,4 +57,5 @@ const IssuesPage = async () => {
   );
 };
 
+export const revalidate = 0;
 export default IssuesPage;

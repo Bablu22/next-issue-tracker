@@ -25,10 +25,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.variable}>
-        <Theme appearance="dark">
+        <Theme>
           <NextTopLoader color="rgb(14 165 233)" showSpinner={false} />
           <NavBar />
-          <main className="relative mx-auto  bg-slate-950 text-white min-h-screen">
+          <main className="relative mx-auto   min-h-screen">
             <div className="container mx-auto">
               <div className="py-16 px-4 sm:px-6 lg:px-8">{children}</div>
             </div>
