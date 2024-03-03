@@ -14,7 +14,7 @@ const links = [
   },
   {
     label: "Issues",
-    path: "/issues",
+    path: "/issues/list",
   },
 ];
 

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { RiPencilFill } from "react-icons/ri";
 import Markdown from "react-markdown";
+import DeleteIssueButton from "./DeleteIssueButton";
 
 interface Props {
   params: { id: string };
@@ -23,25 +24,28 @@ const IssueDetailsPge = async ({ params }: Props) => {
     <Grid
       columns={{
         initial: "1",
-        md: "2",
+        md: "5",
       }}
       gap="5"
     >
-      <Box>
+      <Box className="md:col-span-4">
         <Heading>{issue.title}</Heading>
         <Flex className="space-x-3" my="2">
           <IssueStatusBadge status={issue.status} />
           <Text>{issue.createdAt.toDateString()}</Text>
         </Flex>
-        <Card className="prose " mt="4">
+        <Card className="prose max-w-full" mt="4">
           <Markdown>{issue.description}</Markdown>
         </Card>
       </Box>
       <Box>
-        <Button>
-          <RiPencilFill />
-          <Link href={`/issues/${issue.id}/edit`}>Edit Issue</Link>
-        </Button>
+        <Flex direction="column" gap="4">
+          <Button>
+            <RiPencilFill />
+            <Link href={`/issues/edit/${issue.id}`}>Edit Issue</Link>
+          </Button>
+          <DeleteIssueButton issueId={issue.id} />
+        </Flex>
       </Box>
     </Grid>
   );
