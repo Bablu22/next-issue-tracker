@@ -9,6 +9,7 @@ import DeleteIssueButton from "./DeleteIssueButton";
 import { authOptions } from "@/app/auth/authOptions";
 import { getServerSession } from "next-auth";
 import AssigneeSelect from "./AssigneeSelect";
+import { addIssueToContext } from "zod";
 
 interface Props {
   params: { id: string };
@@ -47,7 +48,7 @@ const IssueDetailsPge = async ({ params }: Props) => {
         <Flex direction="column" gap="4">
           {session && (
             <>
-              <AssigneeSelect />
+              <AssigneeSelect issue={issue} />
               <Button>
                 <RiPencilFill />
                 <Link href={`/issues/edit/${issue.id}`}>Edit Issue</Link>
