@@ -9,18 +9,22 @@ import DeleteIssueButton from "./DeleteIssueButton";
 import { authOptions } from "@/app/auth/authOptions";
 import { getServerSession } from "next-auth";
 import AssigneeSelect from "./AssigneeSelect";
-import { addIssueToContext } from "zod";
+import { cache } from "react";
 
 interface Props {
   params: { id: string };
 }
 
+const fetchUser = cache((issueId: string) => {
+  return prisma.issue.findUnique({
+    where: { id: issueId },
+  });
+});
+
 const IssueDetailsPge = async ({ params }: Props) => {
   const session = await getServerSession(authOptions);
 
-  const issue = await prisma.issue.findUnique({
-    where: { id: params.id },
-  });
+  const issue = await fetchUser(params.id);
 
   if (!issue) {
     notFound();
@@ -61,5 +65,13 @@ const IssueDetailsPge = async ({ params }: Props) => {
     </Grid>
   );
 };
+
+export async function generateMetadata({ params }: Props) {
+  const issue = await fetchUser(params.id);
+  return {
+    title: issue?.title,
+    description: issue?.description,
+  };
+}
 
 export default IssueDetailsPge;

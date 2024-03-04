@@ -6,16 +6,22 @@ import IssueStatusBadge from "../../components/IssueStatusBadge";
 import CustomLink from "../../components/CustomLink";
 import IssueStatusFilter from "./IssueStatusFilter";
 import { Status } from "@prisma/client";
+import Pagination from "@/app/components/Pagination";
+import IssueTable from "./IssueTable";
+import { Metadata } from "next";
 
 const IssuesPage = async ({
   searchParams,
 }: {
-  searchParams: { status: Status };
+  searchParams: { status: Status; page: string };
 }) => {
   const statuses = Object.values(Status);
   const status = statuses.includes(searchParams.status)
     ? searchParams.status
     : undefined;
+
+  const page = parseInt(searchParams.page, 10) || 1;
+  const pageSize = 6;
 
   const issues = await prisma.issue.findMany({
     where: {
@@ -24,7 +30,11 @@ const IssuesPage = async ({
     orderBy: {
       createdAt: "desc",
     },
+    skip: (page - 1) * pageSize,
+    take: pageSize,
   });
+
+  const itemCount = await prisma.issue.count({ where: { status } });
 
   return (
     <div>
@@ -34,43 +44,21 @@ const IssuesPage = async ({
         </Button>
         <IssueStatusFilter />
       </div>
-      <Table.Root variant="surface">
-        <Table.Header>
-          <Table.Row>
-            <Table.ColumnHeaderCell>Title</Table.ColumnHeaderCell>
-            <Table.ColumnHeaderCell className="hidden md:table-cell">
-              Status
-            </Table.ColumnHeaderCell>
-            <Table.ColumnHeaderCell className="hidden md:table-cell">
-              Created
-            </Table.ColumnHeaderCell>
-          </Table.Row>
-        </Table.Header>
-        <Table.Body>
-          {issues.map((issue) => (
-            <Table.Row key={issue.id}>
-              <Table.Cell>
-                <CustomLink href={`/issues/${issue.id}`}>
-                  {issue.title}
-                </CustomLink>
-
-                <div className="block md:hidden">
-                  <IssueStatusBadge status={issue.status} />
-                </div>
-              </Table.Cell>
-              <Table.Cell className="hidden md:table-cell">
-                <IssueStatusBadge status={issue.status} />
-              </Table.Cell>
-              <Table.Cell className="hidden md:table-cell">
-                {issue.createdAt.toDateString()}
-              </Table.Cell>
-            </Table.Row>
-          ))}
-        </Table.Body>
-      </Table.Root>
+      <IssueTable issues={issues} />
+      <Pagination
+        itemCount={itemCount}
+        pageSize={pageSize}
+        currentPage={page}
+      />
     </div>
   );
 };
 
 export const revalidate = 0;
 export default IssuesPage;
+
+export const metadata: Metadata = {
+  title: "Issues Tracker - List",
+  description: "List of issues in the issues tracker app.",
+  keywords: "issues, list",
+};

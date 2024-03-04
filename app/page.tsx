@@ -1,32 +1,34 @@
 import { Text } from "@radix-ui/themes";
+import LatestIssue from "./LatestIssue";
+import IssueSummary from "./IssueSummary";
+import { prisma } from "@/prisma";
+import IssueChart from "./IssueChart";
+import { Metadata } from "next";
 
-export default function Home() {
+export default async function Home() {
+  const open = await prisma.issue.count({ where: { status: "OPEN" } });
+  const closed = await prisma.issue.count({ where: { status: "CLOSED" } });
+  const inProgress = await prisma.issue.count({
+    where: { status: "IN_PROGRESS" },
+  });
+
   return (
     <div>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, ipsam
-        exercitationem accusantium et in velit itaque corrupti rem. Nihil quas,
-        iure exercitationem neque libero obcaecati. Inventore temporibus
-        distinctio maxime quis et aut officia placeat tempora, hic amet debitis
-        suscipit autem voluptates voluptas quaerat quo quidem cupiditate magnam
-        quam eum in nam cum numquam! Eaque necessitatibus obcaecati commodi
-        deleniti delectus cupiditate eos omnis, sapiente rem, quia quo
-        accusantium blanditiis, unde iure. Ex voluptates sunt similique? Dolore,
-        quam? Dicta dolorum perspiciatis aut laborum dolores fuga reprehenderit
-        aperiam molestias nihil, dignissimos quia quidem dolore cumque
-        praesentium necessitatibus ducimus non! Doloribus ratione cumque magni
-        corporis aliquid, quas numquam porro a rerum molestias quae aut! Ipsa
-        animi inventore aliquam architecto placeat aspernatur officiis at quae
-        saepe laudantium quia iusto repellendus sunt dolorem, sequi accusantium.
-        Ipsum iusto a corrupti, minima in eligendi eos inventore odio, saepe
-        fuga illum ab nihil! Adipisci excepturi laudantium tempore? Praesentium
-        mollitia deserunt cumque vel numquam illum illo corporis? Ipsum beatae
-        iste nam facere repellat doloribus ducimus et nemo ratione, molestiae,
-        quos sint natus hic cumque porro distinctio neque culpa quas. Assumenda
-        maiores hic voluptates porro vel quaerat fugiat rem numquam. Accusamus
-        dolores voluptatem eaque ullam? Quisquam modi delectus nihil aut
-        asperiores?
-      </p>
+      <LatestIssue />
+      <div className="mt-5">
+        <Text size="6" mt="5" className="font-bold ">
+          Issues Summary
+        </Text>
+      </div>
+      <div className="mx-auto max-w-xl">
+        <IssueChart open={open} closed={closed} inProgress={inProgress} />
+      </div>
     </div>
   );
 }
+
+export const metadata: Metadata = {
+  title: "Issues Tracker - Dashboard",
+  description: "Dashboard for the issues tracker app.",
+  keywords: "home, issues",
+};
